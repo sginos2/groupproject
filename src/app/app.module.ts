@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SetupComponent } from './components/setup/setup.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import {MatCardModule} from '@angular/material/card';
     TimerComponent,
     LoginComponent,
     UserInfoComponent,
+    SetupComponent,
  
   ],
   imports: [
@@ -31,7 +35,9 @@ import {MatCardModule} from '@angular/material/card';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
