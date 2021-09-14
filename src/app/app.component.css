@@ -12,3 +12,15 @@
      margin: 60px;
      
  }
+ mat-drawer-content {
+   height: 120px;
+     display: flex;
+     justify-content: right;
+     margin: 15px;
+ }
+ mat-card {
+     padding: 25px;
+ }
+ #timer {
+     text-align: center;
+ }

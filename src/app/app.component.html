@@ -4,12 +4,12 @@
       <div class="playersContainer">
     <h1 class="players">Players</h1>
 
-    <h2 class="player">Usernameone <span class="score">3</span></h2> 
-
-    <h2 class="player">Usernametwo <span class="score">0</span></h2> 
-    <h2 class="player">Usernamethree <span class="score">1</span></h2> 
-    <h2 class="player">Usernamefour <span class="score">2</span></h2> 
-    
+    <mat-list>
+      <mat-list-item>  <h2 class="player">UsernameOne <span class="score">3</span></h2> </mat-list-item> 
+      <mat-list-item>  <h2 class="player">UsernameTwo <span class="score">0</span></h2>  </mat-list-item>
+      <mat-list-item>  <h2 class="player">UsernameThree <span class="score">2</span></h2> </mat-list-item>
+      <mat-list-item>  <h2 class="player">UsernameFour <span class="score">1</span></h2>  </mat-list-item>
+     </mat-list>
   </div>
 
   <div class="gameInfo">
@@ -22,5 +22,11 @@
   
   </div>
   </mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
+
+  
+  <mat-drawer-content><mat-card><h1 class="timerHeader">TIME:</h1>
+  <h2 id="timer">0:00</h2>
+  </mat-card>
+  </mat-drawer-content>
+  
 </mat-drawer-container>
