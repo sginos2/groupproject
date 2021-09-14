@@ -9,6 +9,8 @@ import { CardMatchComponent } from './components/card-match/card-match.component
 import { TimerComponent } from './components/timer/timer.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,14 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     CardMatchComponent,
     TimerComponent,
     LoginComponent,
-    UserInfoComponent
+    UserInfoComponent,
+ 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
