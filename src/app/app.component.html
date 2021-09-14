@@ -1,1 +1,33 @@
 <app-top-navbar></app-top-navbar>
+<mat-drawer-container class="sidenav">
+  <mat-drawer mode="side" opened>
+    <div class="mainSideContainer">
+      <div class="playersContainer">
+    <h1 class="players">Players</h1>
+
+    <mat-list>
+      <mat-list-item>  <h2 class="player">UsernameOne <span class="score">3</span></h2> </mat-list-item> 
+      <mat-list-item>  <h2 class="player">UsernameTwo <span class="score">0</span></h2>  </mat-list-item>
+      <mat-list-item>  <h2 class="player">UsernameThree <span class="score">2</span></h2> </mat-list-item>
+      <mat-list-item>  <h2 class="player">UsernameFour <span class="score">1</span></h2>  </mat-list-item>
+     </mat-list>
+  </div>
+
+  <div class="gameInfo">
+   <h1 class="matchesLeft">MATCHES LEFT:</h1> 
+    <div id="matchesLeftId">8</div>
+
+    <h1 class="totalRounds">TOTAL ROUNDS PLAYED:</h1>
+    <div id="totalRoundsId">8</div>
+  </div>
+  
+  </div>
+  </mat-drawer>
+
+  
+  <mat-drawer-content><mat-card><h1 class="timerHeader">TIME:</h1>
+  <h2 id="timer">0:00</h2>
+  </mat-card>
+  </mat-drawer-content>
+  
+</mat-drawer-container>

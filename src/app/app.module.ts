@@ -15,6 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     CardMatchComponent,
     TimerComponent,
     LoginComponent,
-    UserInfoComponent
+    UserInfoComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,9 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule,
     MatCardModule
   ],
   providers: [],
