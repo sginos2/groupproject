@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pokemonmatch-6ec00": {
+      "hosting": {
+        "pokemonMatch": [
+          "pokemonmatch-6ec00"
+        ]
+      }
+    }
+  }
+}
