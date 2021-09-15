@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SetupComponent } from './components/setup/setup.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatCardModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

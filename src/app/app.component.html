@@ -34,20 +34,48 @@
 </mat-drawer-container> -->
 
 
+
 <!--Navbar once completed will go here-->
 <mat-card class="formContainer">
+  <form>
   <h1 class="setHeader">Set Up Game</h1>
 
-  <h2 class="matchesHeader">Number of Matches:</h2>
-  <section class="matchesSelect">
-    <mat-checkbox class="option">2</mat-checkbox>
-    <mat-checkbox class="option">4</mat-checkbox>
-    <mat-checkbox class="option">6</mat-checkbox>
-    <mat-checkbox class="option">8</mat-checkbox>
-  </section>
-  
-  <h2 class="setheader">Set Selection:</h2>
+  <div class="halfContainer">
+    <h2 class="matchesHeader">Number of Matches:</h2>
+    <mat-radio-group aria-label="Select an option" >
+      <mat-radio-button value="2" class="matchOption">2</mat-radio-button>
+      <mat-radio-button value="4" class="matchOption">4</mat-radio-button>
+      <mat-radio-button value="6" class="matchOption">6</mat-radio-button>
+      <mat-radio-button value="8" class="matchOption">8</mat-radio-button>
+    </mat-radio-group>
+  </div>
 
-  
+  <div class="secondHalf">
+    <h2 class="setheader">Set Selection:</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a card set</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let set of sets" [value]="set.value">
+          {{set.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <h2 class="playerSelectHeader">Select Players:</h2>
+  <p>Choose up to 4</p>
+    <section class="playerSelect">
+      <mat-checkbox class="playerBoxes">usernameOne</mat-checkbox>
+      <mat-checkbox class="playerBoxes">usernameTwo</mat-checkbox>
+      <mat-checkbox class="playerBoxes">usernameThree</mat-checkbox>
+      <mat-checkbox class="playerBoxes">usernameFour</mat-checkbox>
+    </section>
+
+<div class="startButton">
+  <button id="start" mat-button color="primary">Start Game</button>
+</div>
+    
+
+</form>
 </mat-card>
 

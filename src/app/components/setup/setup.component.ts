@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Set {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-setup',
