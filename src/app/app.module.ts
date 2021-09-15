@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { CardMatchComponent } from './components/card-match/card-match.component';
@@ -37,6 +39,7 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
