@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-interface Set {
-  value: string;
-  viewValue: string;
-}
+@Injectable({
+  providedIn: 'root',
+})
 
 @Component({
   selector: 'app-setup',
@@ -12,16 +13,30 @@ interface Set {
 })
 export class SetupComponent implements OnInit {
 
-  sets: Set[] = [
-    {value: 'set-1', viewValue: 'Sword and Shield'},
-    {value: 'set-2', viewValue: 'Sun and Moon'},
-    {value: 'set-3', viewValue: 'XY'},
-  ];
+  sets: any;
+  selectedSet: any;
+  userSelections: any;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
+    this.http.get('https://api.pokemontcg.io/v2/sets')
+    .subscribe((data: any) => {
+      this.sets = data.data;
+    })
   }
-  
+
+  startGame() {
+    this.userSelections = {
+      set: this.selectedSet
+    }
+    console.log(this.selectedSet);
+    this.router.navigate([`./match/${this.selectedSet}`]);
+  }
+
+  //on startGame() function, save selections to an array
 
 }

@@ -16,10 +16,8 @@
       <h2 class="setheader">Set Selection:</h2>
       <mat-form-field appearance="fill">
         <mat-label>Choose a card set</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let set of sets" [value]="set.value">
-            {{set.viewValue}}
-          </mat-option>
+        <mat-select [(ngModel)]="selectedSet" name='dropdown'>
+          <mat-option *ngFor="let set of sets" [value]="set.name">{{set.name}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -33,10 +31,9 @@
         <mat-checkbox class="playerBoxes">usernameFour</mat-checkbox>
       </section>
   
-  <div class="startButton">
-    <button id="start" mat-button color="primary">Start Game</button>
-  </div>
-      
-  
+    
   </form>
-  </mat-card>
+  <div class="startButton">
+    <button mat-button color="primary" (click)='startGame()'>Start Game</button>
+</div>
+</mat-card>
