@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   providedIn: 'root',
 })
 
+
+
 @Component({
   selector: 'app-card-match',
   templateUrl: './card-match.component.html',
