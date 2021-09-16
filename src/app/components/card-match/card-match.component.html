@@ -1,37 +1,8 @@
 <app-side-navbar></app-side-navbar>
 
 <div class="card-container">
-    <!-- eventually generate cards from api -->
-    <mat-card>
-        <!-- <img mat-card-image src='{{pokemonCard}}'/> -->
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
-    </mat-card>
-    <mat-card>
-        Pokemon
+    <mat-card *ngFor="let card of cards">
+        <img mat-card-img class='cardImg' src="{{card.images.small}}" alt="card.name">
     </mat-card>
 </div>
 

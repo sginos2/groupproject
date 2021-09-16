@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'setup', component: SetupComponent},
-  {path: 'match', component: CardMatchComponent},
+  {path: 'match/:setName', component: CardMatchComponent},
   {path: 'user', component: UserInfoComponent}
 ];
 
