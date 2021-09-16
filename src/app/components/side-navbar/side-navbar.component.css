@@ -1,0 +1,26 @@
+
+.sidenav {
+    width: auto;
+    height: 100%;
+  }
+ #matchesLeftId, #totalRoundsId, .matchesLeft, .totalRounds {
+     text-align: center;
+     font-size: 21px;
+     margin: 25px
+ }
+ .playersContainer {
+     text-align: center;
+     margin: 60px;
+     
+ }
+ mat-drawer-content {
+   height: 120px;
+     display: flex;
+     justify-content: right;
+     margin: 15px;
+ }
+ mat-card {
+     padding: 25px;
+ }
+ 
+ 
