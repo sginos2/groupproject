@@ -1,4 +1,5 @@
 .card-container {
+    width: 60%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -7,15 +8,43 @@
     align-items: center;
 }
 
-mat-card {
+:host {
+    display: block;
+    perspective: 600px;
+}
+
+.card {
+    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
     margin: 10px;
     padding: 0px;
     width: 100px;
     height: 130px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
 }
 
-.cardImg {
+.face {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    backface-visibility: hidden;
+}
+
+img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: inherit;
 }
+
+.front {
+    transform: rotateY(180deg);
+}
+
+
+
+
