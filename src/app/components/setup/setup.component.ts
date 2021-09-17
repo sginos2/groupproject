@@ -14,7 +14,9 @@ import { Router } from '@angular/router';
 export class SetupComponent implements OnInit {
 
   sets: any;
+  selectedMatchNum: any;
   selectedSet: any;
+  selectedPlayers: any;
   userSelections: any;
 
   constructor(
@@ -31,12 +33,10 @@ export class SetupComponent implements OnInit {
 
   startGame() {
     this.userSelections = {
+      matchesNum: this.selectedMatchNum,
       set: this.selectedSet
     }
-    console.log(this.selectedSet);
-    this.router.navigate([`./match/${this.selectedSet}`]);
+    localStorage.setItem('userSelections', JSON.stringify(this.userSelections));
+    this.router.navigate(['./match']);
   }
-
-  //on startGame() function, save selections to an array
-
 }
