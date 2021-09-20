@@ -26,20 +26,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SetupComponent } from './components/setup/setup.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
-import { getAuth, onAuthStateChanged, signInWithCredential, GoogleAuthProvider } from "firebase/auth";
-
-// const auth = getAuth();
-
-
-const provider = new GoogleAuthProvider();
-const firebaseConfig = {
-  apiKey: "AIzaSyBCVCULN2s1yMUUnBrYAs1g_wHQ5p3s1fk",
-  authDomain: "pokemonproject-940ec.firebaseapp.com",
-  projectId: "pokemonproject-940ec",
-  storageBucket: "pokemonproject-940ec.appspot.com",
-  messagingSenderId: "195949437524",
-  appId: "1:195949437524:web:3120ca583aaacd0ca0c3c1",
-};
 
 
 @NgModule({
@@ -52,7 +38,6 @@ const firebaseConfig = {
     LoginComponent,
     UserInfoComponent,
     SetupComponent
- 
   ],
   imports: [
     BrowserModule,
@@ -72,10 +57,12 @@ const firebaseConfig = {
     MatCheckboxModule,
     MatSelectModule,
     MatRadioModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 
 export class AppModule { }
 
