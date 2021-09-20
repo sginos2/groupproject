@@ -1,11 +1,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDSOhyrALl-zFVla0Bon6OqeJm6urbefMY",
-    authDomain: "pokemonmatch-6ec00.firebaseapp.com",
-    projectId: "pokemonmatch-6ec00",
-    storageBucket: "pokemonmatch-6ec00.appspot.com",
-    messagingSenderId: "493909424076",
-    appId: "1:493909424076:web:dd605a6df9705d0ad5cf69"
+    apiKey: "AIzaSyBCVCULN2s1yMUUnBrYAs1g_wHQ5p3s1fk",
+    authDomain: "pokemonproject-940ec.firebaseapp.com",
+    projectId: "pokemonproject-940ec",
+    storageBucket: "pokemonproject-940ec.appspot.com",
+    messagingSenderId: "195949437524",
+    appId: "1:195949437524:web:3120ca583aaacd0ca0c3c1",
+    measurementId: "G-H7RYQY8VP2"
   }
 };
+

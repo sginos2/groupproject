@@ -1,8 +1,13 @@
-<app-top-navbar></app-top-navbar>
+
+
 <router-outlet style="height: 100%;"></router-outlet>
-<!-- 
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
   <mat-drawer-container class="sidenav">
-<mat-drawer-container class="sidenav">
+
+<app-top-navbar></app-top-navbar>
+<router-outlet style="height: 100%"></router-outlet>
+
+<!-- <mat-drawer-container class="sidenav">
   <mat-drawer mode="side" opened>
     <div class="mainSideContainer">
       <div class="playersContainer">
