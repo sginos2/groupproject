@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
+
 import { AngularFireModule } from '@angular/fire/compat';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
@@ -25,6 +26,20 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SetupComponent } from './components/setup/setup.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { getAuth, onAuthStateChanged, signInWithCredential, GoogleAuthProvider } from "firebase/auth";
+
+// const auth = getAuth();
+
+
+const provider = new GoogleAuthProvider();
+const firebaseConfig = {
+  apiKey: "AIzaSyBCVCULN2s1yMUUnBrYAs1g_wHQ5p3s1fk",
+  authDomain: "pokemonproject-940ec.firebaseapp.com",
+  projectId: "pokemonproject-940ec",
+  storageBucket: "pokemonproject-940ec.appspot.com",
+  messagingSenderId: "195949437524",
+  appId: "1:195949437524:web:3120ca583aaacd0ca0c3c1",
+};
 
 
 @NgModule({
@@ -63,14 +78,4 @@ import {MatRadioModule} from '@angular/material/radio';
 })
 
 export class AppModule { }
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCfjJNfvrfoWwQeNn5ZwjvLRSgTJcnhSD0",
-  authDomain: "pokeauth113.firebaseapp.com",
-  projectId: "pokeauth113",
-  storageBucket: "pokeauth113.appspot.com",
-  messagingSenderId: "79644455249",
-  appId: "1:79644455249:web:9819a810fc281e5703a370",
-  measurementId: "G-CV3PQVVLXJ"
-};
 
