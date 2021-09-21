@@ -1,11 +1,11 @@
 <div class="card-container">
     <div *ngFor="let card of cardsArr">
-        <div class="card"  (click)="cardClicked()" [@cardFlip]="data.state">
+        <div class='card' (click)="cardClicked(card)" [@cardFlip]="card.state">
             <div class="face back">
                 <img src="../../../assets/Cardback.jpeg">
             </div>
             <div class="face front">
-                <img mat-card-img class='cardImg' src="{{card.images.small}}" alt="card.name">
+                <img mat-card-img src="{{card.images.small}}" alt="card.name">
             </div>
         </div>
     </div>

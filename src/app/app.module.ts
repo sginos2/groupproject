@@ -51,8 +51,7 @@ const firebaseConfig = {
     TimerComponent,
     LoginComponent,
     UserInfoComponent,
-    SetupComponent
- 
+    SetupComponent,
   ],
   imports: [
     BrowserModule,

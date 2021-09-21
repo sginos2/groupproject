@@ -1,6 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 interface CardData {
@@ -39,16 +38,16 @@ export class CardMatchComponent implements OnInit {
   selectedSet: any;
   matchNum: any;
   cards: any;
-  data: CardData = {
-    state: "default"
+  cardData: CardData = {
+    state: 'default'
   };
+  cardInfo: any;
   cardsArr: any[] = [];
   randomIdx: any;
   randomCard: any;
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
@@ -69,7 +68,13 @@ export class CardMatchComponent implements OnInit {
       this.randomIdx = Math.floor(Math.random() * arr.length);
       this.randomCard = arr[this.randomIdx];
       this.cardsArr.push(this.randomCard);
-      this.cardsArr.push(this.randomCard);
+      this.cardsArr.push({...this.randomCard});
+
+      //clone randomCard and push clone of random card
+      //shallow clone clones first level of keys, deep clone will clone everything
+    }
+    for (let i = 0; i < this.cardsArr.length; i++) {
+      this.cardsArr[i].state = 'default';
     }
   }
 
@@ -80,11 +85,11 @@ export class CardMatchComponent implements OnInit {
     }
 }
 
-  cardClicked() {
-    if (this.data.state === "default") {
-      this.data.state = "flipped";
+  cardClicked(card: any) {
+    if (card.state === "default") {
+      card.state = "flipped";
     } else {
-      this.data.state = "default";
+      card.state = "default";
     }
   }
 }
