@@ -75,8 +75,12 @@ export class CardMatchComponent implements OnInit {
   }
 
   randomizeCards(arr: any, num: number) {
+    let existingNumbers: any[] = [];
     for (let i = 0; i < num; i++) {
-      this.randomIdx = Math.floor(Math.random() * arr.length);
+      do {
+        this.randomIdx = Math.floor(Math.random() * arr.length);
+      } while(existingNumbers.includes(this.randomIdx));
+      existingNumbers.push(this.randomIdx);
       this.randomCard = arr[this.randomIdx];
       this.cardsArr.push(this.randomCard);
       this.cardsArr.push({...this.randomCard});
