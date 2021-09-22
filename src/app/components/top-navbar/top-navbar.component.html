@@ -2,9 +2,10 @@
     <div routerLink="./login">PokeMatch</div>
     <span class="spacer"></span>
     <button mat-icon-button routerLink="./user">
-        <mat-icon>account_circle</mat-icon>
+        <mat-icon (click)="currentUserProfile()">account_circle</mat-icon>
     </button>
+    
     <button mat-icon-button>
-        <mat-icon>exit_to_app</mat-icon>
+        <mat-icon (click)="callSignOut()" routerLink="./login">exit_to_app</mat-icon>
     </button>
 </mat-toolbar>
