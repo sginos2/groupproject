@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
-
 import { AngularFireModule } from '@angular/fire/compat';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
@@ -27,6 +26,11 @@ import { SetupComponent } from './components/setup/setup.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const app = initializeApp(environment.firebaseConfig);
+const analytics = getAnalytics(app);
 
 @NgModule({
   declarations: [
@@ -38,6 +42,7 @@ import {MatRadioModule} from '@angular/material/radio';
     LoginComponent,
     UserInfoComponent,
     SetupComponent
+    
   ],
   imports: [
     BrowserModule,
