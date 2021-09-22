@@ -1,23 +1,22 @@
-<app-top-navbar></app-top-navbar>
 <mat-card>
     <mat-card-title>User Profile</mat-card-title>
     <mat-card-content>
         <div class="user-stats">
-            <p id="usernameStats">Username: user72</p>
+            <p>Username:<span id="usernameStats">user72</span></p>
             <p>Total Games Played: 19</p>
             <p>Games Won: 12</p>
             <p>Games Lost: 7</p>
         </div>
         <div class="win-loss-lists">
-            <ul>Players You've Defeated:
-                <li>user26</li>
-                <li>user43</li>
-                <li>user81</li>
+            <ul id="usersList1">Players You've Defeated:
+                <li class="usernameOnList">user26</li>
+                <li class="usernameOnList">user43</li>
+                <li class="usernameOnList">user81</li>
             </ul>
-            <ul>Players Who've Defeated You:
-                <li>user53</li>
-                <li>user64</li>
-                <li>user71</li>
+            <ul id="usersList2">Players Who've Defeated You:
+                <li class="usernameOnList">user53</li>
+                <li class="usernameOnList">user64</li>
+                <li class="usernameOnList">user71</li>
             </ul>
         </div>
     </mat-card-content>

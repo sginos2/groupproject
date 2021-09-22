@@ -1,3 +1,5 @@
+
+
 export const environment = {
   production: false,
   firebaseConfig: {
@@ -9,5 +11,6 @@ export const environment = {
     appId: "1:195949437524:web:3120ca583aaacd0ca0c3c1",
     measurementId: "G-H7RYQY8VP2"
   }
+  
 };
 
