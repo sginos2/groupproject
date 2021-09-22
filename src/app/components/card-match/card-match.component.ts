@@ -17,16 +17,24 @@ interface CardData {
   animations: [
     trigger('cardFlip', [
       state('default', style({
-        transform: 'none'
+        transform: 'none',
       })),
       state('flipped', style({
-        transform: 'rotateY(180deg)'
+        transform: 'perspective(600px) rotateY(180deg)'
+      })),
+      state('matched', style({
+        visibility: 'false',
+        transform: 'scale(0.05)',
+        opacity: 0
       })),
       transition('default => flipped', [
         animate('400ms')
       ]),
       transition('flipped => default', [
-        animate('200ms')
+        animate('400ms')
+      ]),
+      transition('* => matched', [
+        animate('400ms')
       ])
     ])
   ]
@@ -45,6 +53,9 @@ export class CardMatchComponent implements OnInit {
   cardsArr: any[] = [];
   randomIdx: any;
   randomCard: any;
+  flippedCards: any[] = [];
+  cardStates: any;
+  matchCount = 0;
 
   constructor(
     private http: HttpClient,
@@ -69,9 +80,6 @@ export class CardMatchComponent implements OnInit {
       this.randomCard = arr[this.randomIdx];
       this.cardsArr.push(this.randomCard);
       this.cardsArr.push({...this.randomCard});
-
-      //clone randomCard and push clone of random card
-      //shallow clone clones first level of keys, deep clone will clone everything
     }
     for (let i = 0; i < this.cardsArr.length; i++) {
       this.cardsArr[i].state = 'default';
@@ -86,12 +94,34 @@ export class CardMatchComponent implements OnInit {
 }
 
   cardClicked(card: any) {
-    if (card.state === "default") {
-      card.state = "flipped";
+    if (card.state === 'default' && this.flippedCards.length < 3) {
+      card.state = 'flipped';
+      this.flippedCards.push(card);
+      if (this.flippedCards.length > 1) {
+        setTimeout(() => {this.checkForCardMatch()}, 1000);
+      }
+    } 
+    else if (card.state === 'flipped') {
+      card.state = 'default';
+      this.flippedCards.pop();
+    }
+    
+  }
+
+  checkForCardMatch() {
+    if (this.flippedCards[0].id === this.flippedCards[1].id) {
+      this.flippedCards[1].state = 'matched';
+      this.flippedCards[0].state = 'matched';
+      this.flippedCards = [];
+      this.matchCount++;
+      if (this.matchCount === this.matchNum) {
+        alert('All matches found! Game Over.');
+      }
     } else {
-      card.state = "default";
+      this.flippedCards[1].state = 'default';
+      this.flippedCards[0].state = 'default';
+      this.flippedCards = [];
     }
   }
-}
 
-//match cards on id field
+}
