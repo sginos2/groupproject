@@ -20,11 +20,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SetupComponent } from './components/setup/setup.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 import { CountdownModule } from 'ngx-countdown';
 
 
@@ -49,7 +49,6 @@ const analytics = getAnalytics(app);
     UserInfoComponent,
     SetupComponent,
     GameplayComponent
-    
   ],
   imports: [
     BrowserModule,
@@ -69,10 +68,9 @@ const analytics = getAnalytics(app);
     MatCheckboxModule,
     MatSelectModule,
     MatRadioModule,
-    CountdownModule
-    
+    CountdownModule,  
   ],
-  providers: [],
+  providers: [TimerComponent, SideNavbarComponent, CardMatchComponent],
   bootstrap: [AppComponent]
 })
 

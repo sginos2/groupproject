@@ -45,6 +45,7 @@ export class CardMatchComponent implements OnInit {
   userSelections: any;
   selectedSet: any;
   matchNum: any;
+  players: any;
   cards: any;
   cardData: CardData = {
     state: 'default'

@@ -3,6 +3,7 @@ import { TimerComponent } from './timer/timer.component';
 import { CardMatchComponent } from './card-match/card-match.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 
+
 @Component({
   selector: 'app-gameplay',
   templateUrl: './gameplay.component.html',
@@ -10,10 +11,18 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 })
 export class GameplayComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(
+    public timer: TimerComponent,
+    public match: CardMatchComponent,
+    public sideNav: SideNavbarComponent
+  ) { }
 
   ngOnInit(): void {
   }
+
+
 
   //when timer hits 0, change currentPlayer to next player in array of players
   //increment matched cards number to currentPlayer's score
