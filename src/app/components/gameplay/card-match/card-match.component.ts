@@ -109,7 +109,6 @@ export class CardMatchComponent implements OnInit {
       card.state = 'default';
       this.flippedCards.pop();
     }
-    
   }
 
   checkForCardMatch() {
@@ -118,7 +117,8 @@ export class CardMatchComponent implements OnInit {
       this.flippedCards[0].state = 'matched';
       this.flippedCards = [];
       this.matchCount++;
-      if (this.matchCount === this.matchNum) {
+      this.matchNum--;
+      if (this.matchNum === 0) {
         alert('All matches found! Game Over.');
       }
     } else {
@@ -129,3 +129,6 @@ export class CardMatchComponent implements OnInit {
   }
 
 }
+
+//when game completes, increment variable called gamesPlayed, variable for winner, array for losers, 
+//variable for games wone, variable for games lost yulissa will deal with pushing to database

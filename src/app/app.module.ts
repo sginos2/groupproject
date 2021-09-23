@@ -9,9 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
-import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
-import { CardMatchComponent } from './components/card-match/card-match.component';
-import { TimerComponent } from './components/timer/timer.component';
+import { SideNavbarComponent } from './components/gameplay/side-navbar/side-navbar.component';
+import { CardMatchComponent } from './components/gameplay/card-match/card-match.component';
+import { TimerComponent } from './components/gameplay/timer/timer.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,9 +25,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SetupComponent } from './components/setup/setup.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { CountdownModule } from 'ngx-countdown';
+
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { GameplayComponent } from './components/gameplay/gameplay.component';
 
 
 const app = initializeApp(environment.firebaseConfig);
@@ -44,7 +47,8 @@ const analytics = getAnalytics(app);
     TimerComponent,
     LoginComponent,
     UserInfoComponent,
-    SetupComponent
+    SetupComponent,
+    GameplayComponent
     
   ],
   imports: [
@@ -64,7 +68,8 @@ const analytics = getAnalytics(app);
     MatCardModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    CountdownModule
     
   ],
   providers: [],

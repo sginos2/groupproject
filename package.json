@@ -25,6 +25,7 @@
     "angularfire2": "^5.4.2",
     "firebase": "^9.0.2",
     "firebaseui": "^5.0.0",
+    "ngx-countdown": "^12.0.1",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

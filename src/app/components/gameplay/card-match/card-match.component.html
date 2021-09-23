@@ -1,4 +1,3 @@
-<h2>{{matchCount}}</h2>
 <div class="card-container">
     <div *ngFor="let card of cardsArr">
         <div class='card' (click)="cardClicked(card)" [@cardFlip]="card.state">
