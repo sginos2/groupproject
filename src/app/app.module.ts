@@ -33,9 +33,10 @@ import { getAnalytics } from "firebase/analytics";
 import { GameplayComponent } from './components/gameplay/gameplay.component';
 
 
-
 const app = initializeApp(environment.firebaseConfig);
 const analytics = getAnalytics(app);
+
+
 
 @NgModule({
   declarations: [
