@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
 onAuthStateChanged(auth, (user) => {
   if (user) {
 const uid = user.uid;
-
 const displayName = user.displayName;
     const email = user.email;
     const emailVerified = user.emailVerified;
@@ -57,7 +56,6 @@ const displayName = user.displayName;
   }
   });
 }
-
 
 async addUserData() {
   try {
@@ -68,8 +66,6 @@ async addUserData() {
       const email = user.email;
       const emailVerified = user.emailVerified;
       const db = getFirestore();
-    
-    //add a google user to database
     const docRef = await addDoc(collection(db, "users"), {
       username: displayName
     });
@@ -78,8 +74,7 @@ async addUserData() {
   } catch (e) {
     console.error("Error adding document: ", e);
   }
-  console.log('added to database'); //verify it was added
-  //redirect user here
+  console.log('added to database'); 
 }
 
 
@@ -100,11 +95,7 @@ async gamesPlayed() {
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
-    }
-   
-  
+    } 
 }
-
-
 
 }

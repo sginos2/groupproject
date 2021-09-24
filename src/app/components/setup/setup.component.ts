@@ -48,8 +48,7 @@ export class SetupComponent implements OnInit {
     this.router.navigate(['./match']);
   }
 
-
-  async getPlayers() {
+  async getPlayers() { //need to add realtime updates
     const db = getFirestore();
     const usersRef = collection(db, "users");
     const q = query(collection(db, "users"));
@@ -58,7 +57,5 @@ export class SetupComponent implements OnInit {
       console.log(doc.id, " => ", doc.data());
     });
   }
-    
-
   
 }
