@@ -1,9 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { doc, getDoc } from "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { doc, getDoc, getFirestore, collection, query, where, getDocs, onSnapshot } from "firebase/firestore";
 
 @Injectable({
   providedIn: 'root',
@@ -50,16 +48,17 @@ export class SetupComponent implements OnInit {
     this.router.navigate(['./match']);
   }
 
+
   async getPlayers() {
-
     const db = getFirestore();
-    const q = query(collection(db, "users"), where("username", "==", true));
-
+    const usersRef = collection(db, "users");
+    const q = query(collection(db, "users"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       console.log(doc.id, " => ", doc.data());
     });
-
   }
+    
 
+  
 }
