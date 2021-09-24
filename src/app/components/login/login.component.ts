@@ -2,7 +2,8 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, getRedirectResult } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore"; 
-import { doc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ import { doc } from "firebase/firestore";
 export class LoginComponent implements OnInit {
 
   constructor(
-    
+    private router: Router
   ) { }
 
   ngOnInit(): void {  
@@ -31,66 +32,57 @@ export class LoginComponent implements OnInit {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential!.accessToken;
         const user = result.user;
+        this.addUserData();
+        this.router.navigate(['./setup']);
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
-      }); 
-      
+      });   
   }
   
-  currentUser() {
+
+ currentUser() {
     const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    //user is signed in, see docs for a list of available properties
-    const uid = user.uid;
+const uid = user.uid;
+
+const displayName = user.displayName;
+    const email = user.email;
+    const emailVerified = user.emailVerified;
+    console.log(displayName);
   } else {
   }
   });
 }
 
-currentUserProfile() {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  if (user) {
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
-    console.log(displayName);
-  }
-}
 
-
-
-async getUserData() {
-  
+async addUserData() {
   try {
     const auth = getAuth();
     const user = auth.currentUser;
     if (user) {
       const displayName = user.displayName;
       const email = user.email;
-      const photoURL = user.photoURL;
       const emailVerified = user.emailVerified;
-      console.log(displayName);
-    }
-    const db = getFirestore();
+      const db = getFirestore();
     
     //add a google user to database
     const docRef = await addDoc(collection(db, "users"), {
-      username: user?.displayName, //google displayname
+      username: displayName
     });
-  
     console.log("Document written with ID: ", docRef.id);
+    }
   } catch (e) {
     console.error("Error adding document: ", e);
   }
-
-  
+  console.log('added to database'); //verify it was added
+  //redirect user here
 }
+
+
 // const defeatedRef = doc(db, "users", "defeated") {
         
 // } sub collection for invidual users for both losts and wins in users collection?
