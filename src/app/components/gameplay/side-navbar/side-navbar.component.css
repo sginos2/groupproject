@@ -22,5 +22,9 @@
  mat-card {
      padding: 25px;
  }
+
+ mat-list-item {
+     margin: 10px;
+ }
  
  

@@ -1,7 +1,10 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { doc, getDoc, getFirestore, collection, query, where, getDocs, onSnapshot, orderBy, limit } from "firebase/firestore";
+import { doc, getDoc, getFirestore, query, where, getDocs, onSnapshot, orderBy, limit, collection } from "firebase/firestore";
+
+import { FormBuilder, FormGroup } from '@angular/forms'; 
+
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +23,13 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [
-    {username: this.getPlayers(), id: '1'}, // display data here eventually
-    {username: 'player2', id: '2'},
-    {username: 'player3', id: '3'},
-    {username: 'player4', id: '4'},
+    {username: 'player1', id: '1', score: 0}, // display data here eventually
+    {username: 'player2', id: '2', score: 0},
+    {username: 'player3', id: '3', score: 0},
+    {username: 'player4', id: '4', score: 0},
   ];
-
+  checkBoxChecked: any = false;
+  checkBoxValue: any;
 
   constructor(
     private http: HttpClient,
@@ -37,6 +41,16 @@ export class SetupComponent implements OnInit {
     .subscribe((data: any) => {
       this.sets = data.data;
     })
+  }
+
+  checkedPlayer(id: any) {
+    for (let i = 0; i < this.players.length; i++) {
+      if (this.players[i].id === id) {
+        this.checkBoxValue = this.players[i];
+      }
+    }
+    this.selectedPlayers.push(this.checkBoxValue);
+    console.log(this.selectedPlayers);
   }
 
   startGame() {

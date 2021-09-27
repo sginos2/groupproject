@@ -26,6 +26,7 @@ import { SetupComponent } from './components/setup/setup.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { CountdownModule } from 'ngx-countdown';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { initializeApp } from "firebase/app";
@@ -68,9 +69,10 @@ const analytics = getAnalytics(app);
     MatCheckboxModule,
     MatSelectModule,
     MatRadioModule,
-    CountdownModule,  
+    CountdownModule,
+    MatSnackBarModule  
   ],
-  providers: [TimerComponent, SideNavbarComponent, CardMatchComponent],
+  providers: [TimerComponent, SideNavbarComponent, CardMatchComponent, GameplayComponent],
   bootstrap: [AppComponent]
 })
 

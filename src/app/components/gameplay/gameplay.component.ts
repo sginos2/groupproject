@@ -3,7 +3,6 @@ import { TimerComponent } from './timer/timer.component';
 import { CardMatchComponent } from './card-match/card-match.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 
-
 @Component({
   selector: 'app-gameplay',
   templateUrl: './gameplay.component.html',
@@ -11,7 +10,10 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 })
 export class GameplayComponent implements OnInit {
 
-
+  currentPlayer: any;
+  retrievedUserSelections: any;
+  userSelections: any;
+  players: any;
 
   constructor(
     public timer: TimerComponent,
@@ -20,8 +22,11 @@ export class GameplayComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.retrievedUserSelections = localStorage.getItem('userSelections');
+    this.userSelections = JSON.parse(this.retrievedUserSelections);
+    this.players = this.userSelections.players;
+    this.currentPlayer = this.players[0];
   }
-
 
 
   //when timer hits 0, change currentPlayer to next player in array of players
