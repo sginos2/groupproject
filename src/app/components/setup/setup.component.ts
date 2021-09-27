@@ -1,10 +1,10 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { doc, getDoc } from "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { doc, getDoc, getFirestore, query, where, getDocs, onSnapshot, orderBy, limit, collection } from "firebase/firestore";
+
 import { FormBuilder, FormGroup } from '@angular/forms'; 
+
 
 @Injectable({
   providedIn: 'root',
@@ -23,14 +23,14 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [
-    {username: 'player1', id: '1', score: 0},
+    {username: 'player1', id: '1', score: 0}, // display data here eventually
     {username: 'player2', id: '2', score: 0},
     {username: 'player3', id: '3', score: 0},
     {username: 'player4', id: '4', score: 0},
   ];
   checkBoxChecked: any = false;
   checkBoxValue: any;
-  
+
   constructor(
     private http: HttpClient,
     private router: Router
@@ -63,16 +63,19 @@ export class SetupComponent implements OnInit {
     this.router.navigate(['./match']);
   }
 
-  async getPlayers() {
-
+  async getPlayers() { //need to add realtime updates
     const db = getFirestore();
-    const q = query(collection(db, "users"), where("username", "==", true));
-
+    const usersRef = collection(db, "users");
+    const q = query(usersRef, limit(4));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      console.log(doc.data());
+      
     });
-
+    
   }
 
 }
+  
+
+  

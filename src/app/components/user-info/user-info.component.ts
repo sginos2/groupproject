@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getFirestore } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore"; 
 
 
 @Component({
