@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { doc, getDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { FormBuilder, FormGroup } from '@angular/forms'; 
 
 @Injectable({
   providedIn: 'root',
@@ -22,12 +23,14 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [
-    {username: 'player1', id: '1'},
-    {username: 'player2', id: '2'},
-    {username: 'player3', id: '3'},
-    {username: 'player4', id: '4'},
+    {username: 'player1', id: '1', score: 0},
+    {username: 'player2', id: '2', score: 0},
+    {username: 'player3', id: '3', score: 0},
+    {username: 'player4', id: '4', score: 0},
   ];
-
+  checkBoxChecked: any = false;
+  checkBoxValue: any;
+  
   constructor(
     private http: HttpClient,
     private router: Router
@@ -38,6 +41,16 @@ export class SetupComponent implements OnInit {
     .subscribe((data: any) => {
       this.sets = data.data;
     })
+  }
+
+  checkedPlayer(id: any) {
+    for (let i = 0; i < this.players.length; i++) {
+      if (this.players[i].id === id) {
+        this.checkBoxValue = this.players[i];
+      }
+    }
+    this.selectedPlayers.push(this.checkBoxValue);
+    console.log(this.selectedPlayers);
   }
 
   startGame() {

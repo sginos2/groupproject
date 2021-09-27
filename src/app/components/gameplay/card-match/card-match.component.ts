@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface CardData {
   state: 'default' | 'flipped' | 'matched';
@@ -60,6 +61,7 @@ export class CardMatchComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private snackbar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -67,6 +69,7 @@ export class CardMatchComponent implements OnInit {
     this.userSelections = JSON.parse(this.retrievedUserSelections);
     this.selectedSet = this.userSelections.set;
     this.matchNum = this.userSelections.matchesNum;
+    this.players = this.userSelections.players;
     this.http.get(`https://api.pokemontcg.io/v2/cards?q=set.id:${this.selectedSet}`)
     .subscribe((data: any) => {
       this.cards = data.data;
@@ -120,13 +123,17 @@ export class CardMatchComponent implements OnInit {
       this.matchCount++;
       this.matchNum--;
       if (this.matchNum === 0) {
-        alert('All matches found! Game Over.');
+        this.gameOverMsg();
       }
     } else {
       this.flippedCards[1].state = 'default';
       this.flippedCards[0].state = 'default';
       this.flippedCards = [];
     }
+  }
+
+  gameOverMsg() {
+    this.snackbar.open('All matches found! Game Over.', 'Close');
   }
 
 }
