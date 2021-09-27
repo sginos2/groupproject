@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { doc, getDoc, getFirestore, collection, query, where, getDocs, onSnapshot } from "firebase/firestore";
+import { doc, getDoc, getFirestore, collection, query, where, getDocs, onSnapshot, orderBy, limit } from "firebase/firestore";
 
 @Injectable({
   providedIn: 'root',
@@ -20,11 +20,12 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [
-    {username: 'player1', id: '1'},
+    {username: this.getPlayers(), id: '1'}, // display data here eventually
     {username: 'player2', id: '2'},
     {username: 'player3', id: '3'},
     {username: 'player4', id: '4'},
   ];
+
 
   constructor(
     private http: HttpClient,
@@ -51,11 +52,16 @@ export class SetupComponent implements OnInit {
   async getPlayers() { //need to add realtime updates
     const db = getFirestore();
     const usersRef = collection(db, "users");
-    const q = query(collection(db, "users"));
+    const q = query(usersRef, limit(4));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      console.log(doc.data());
+      
     });
+    
   }
-  
+
 }
+  
+
+  

@@ -24,9 +24,6 @@ export class TopNavbarComponent implements OnInit {
     const user = auth.currentUser;
     if (user) {
       const displayName = user.displayName;
-      const email = user.email;
-      const photoURL = user.photoURL;
-      const emailVerified = user.emailVerified;
       console.log(displayName);
     }
    
