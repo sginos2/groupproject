@@ -23,9 +23,4 @@ export class GameplayComponent implements OnInit {
     this.game.rotatePlayers();
   }
 
-  
-  //when timer hits 0, change currentPlayer to next player in array of players
-  //increment matched cards number to currentPlayer's score
-  //create a 'rounds' variable that increments when each player has had a turn
-
 }

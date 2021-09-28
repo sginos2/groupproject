@@ -14,7 +14,7 @@ export class GameService {
   currentPlayer: any;
   currentPlayerIdx = 0;
   config: CountdownConfig = {
-    leftTime: 15,
+    leftTime: 25,
     formatDate: ({ date }) => `${date / 1000}`,
     notify: 1
   };
@@ -35,16 +35,17 @@ export class GameService {
   }
 
   rotatePlayers() {
-    // setInterval(() => {
-    //   if (this.currentPlayerIdx < this.players.length - 1) {
-    //     this.currentPlayerIdx++;
-    //     this.currentPlayer = this.players[this.currentPlayerIdx];
-    //     console.log(this.currentPlayer);
-    //   } else if (this.currentPlayerIdx >= this.players.length) {
-    //     this.currentPlayerIdx = 0;
-    //     this.roundsPlayed++;
-    //   }
-    // }, 15000)
+    setInterval(() => {
+      if (this.currentPlayerIdx < this.players.length - 1) {
+        this.currentPlayerIdx++;
+        this.currentPlayer = this.players[this.currentPlayerIdx];
+      } else if (this.currentPlayerIdx = this.players.length) {
+        this.currentPlayerIdx = 0;
+        this.currentPlayer = this.players[0];
+        console.log(this.currentPlayer);
+        this.roundsPlayed++;
+      }
+    }, 25000)
   }
 
   findWinner() {

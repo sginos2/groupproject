@@ -54,7 +54,6 @@ export class CardMatchComponent implements OnInit {
   flippedCards: any[] = [];
   cardStates: any;
   matchCount = 0;
-  gamesPlayed = 0;
 
   constructor(
     private http: HttpClient,
@@ -129,8 +128,6 @@ export class CardMatchComponent implements OnInit {
   gameOverMsg() {
     this.game.findWinner();
     this.snackbar.open(`All matches found! Winner: ${this.game.winner}`, 'Close');
-    this.gamesPlayed++;
-    console.log(this.gamesPlayed);
   }
 
 }
