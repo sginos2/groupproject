@@ -72,7 +72,7 @@ const analytics = getAnalytics(app);
     CountdownModule,
     MatSnackBarModule  
   ],
-  providers: [TimerComponent, SideNavbarComponent, CardMatchComponent, GameplayComponent],
+  providers: [CountdownModule, TimerComponent, SideNavbarComponent, CardMatchComponent, GameplayComponent],
   bootstrap: [AppComponent]
 })
 

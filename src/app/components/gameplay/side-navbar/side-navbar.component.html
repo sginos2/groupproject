@@ -7,7 +7,7 @@
       <div class="playersContainer">
     <h1 class="players">Players</h1>
 
-    <mat-list *ngFor='let player of players'>
+    <mat-list *ngFor='let player of game.players'>
       <mat-list-item>
         {{player.username}}
         Matches Found: {{player.score}}
@@ -17,8 +17,12 @@
 
 
   <div class="gameInfo">
-   <h1 class="matchesLeft">MATCHES LEFT:</h1> 
-    <div id="matchesLeftId">{{sideMatchNum}}</div>
+
+    <h1 class='currentPlayer'>CURRENT PLAYER:</h1>
+    <div id='currentPlayerId'>{{game.currentPlayer.username}}</div>
+
+   <h1 class='matchesLeft'>MATCHES LEFT:</h1> 
+    <div id='matchesLeftId'>{{game.matchNum}}</div>
 
     <h1 class="totalRounds">TOTAL ROUNDS PLAYED:</h1>
     <div id="totalRoundsId">8</div>
