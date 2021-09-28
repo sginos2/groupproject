@@ -19,6 +19,9 @@ export class GameService {
     notify: 1
   };
   roundsPlayed = 0;
+  highestScoreIdx = 0;
+  highestScore: any;
+  winner: any;
 
   constructor() { }
 
@@ -42,6 +45,18 @@ export class GameService {
     //     this.roundsPlayed++;
     //   }
     // }, 15000)
+  }
+
+  findWinner() {
+    //try to figure out how to deal with tied games
+    this.highestScore = this.players[0].score;
+    for(let i = 0; i < this.players.length; i++) {
+      if (this.players[i].score > this.highestScore) {
+        this.highestScoreIdx = i;
+        this.highestScore = this.players[i].score;
+      }
+    }
+    this.winner = this.players[this.highestScoreIdx].username;
   }
 
 }

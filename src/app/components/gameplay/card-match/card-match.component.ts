@@ -127,7 +127,8 @@ export class CardMatchComponent implements OnInit {
   }
 
   gameOverMsg() {
-    this.snackbar.open('All matches found! Game Over.', 'Close');
+    this.game.findWinner();
+    this.snackbar.open(`All matches found! Winner: ${this.game.winner}`, 'Close');
     this.gamesPlayed++;
     console.log(this.gamesPlayed);
   }
