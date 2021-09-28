@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { doc, getDoc, getFirestore, collection, query, where, getDocs, onSnapshot } from "firebase/firestore";
-=======
 import { CardMatchComponent } from '../card-match/card-match.component';
 import { TimerComponent } from '../timer/timer.component';
->>>>>>> fdc97e86d465675790ef8add228d13660b6ae5f0
+import { getFirestore, collection, query, doc, getDocs } from '@firebase/firestore';
+
 
 @Component({
   selector: 'app-side-navbar',
@@ -13,10 +11,6 @@ import { TimerComponent } from '../timer/timer.component';
 })
 export class SideNavbarComponent implements OnInit {
 
-<<<<<<< HEAD
-
-  constructor() { }
-=======
   retrievedUserSelections: any;
   userSelections: any;
   sideMatchNum: any;
@@ -25,7 +19,6 @@ export class SideNavbarComponent implements OnInit {
   constructor(
     public match: CardMatchComponent,
   ) { }
->>>>>>> fdc97e86d465675790ef8add228d13660b6ae5f0
 
   ngOnInit(): void {
     this.retrievedUserSelections = localStorage.getItem('userSelections');
