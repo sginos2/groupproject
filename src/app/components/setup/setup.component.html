@@ -26,7 +26,7 @@
     <h2 class="playerSelectHeader">Select Players:</h2>
     <p>Choose up to 4</p>
       <section class="playerSelect">
-        <mat-checkbox *ngFor="let player of players" [(ngModel)]="checkBoxChecked" name="player.id" (click)="checkedPlayer(player.id)">{{player.username}}</mat-checkbox>
+      <mat-checkbox *ngFor="let player of players" [(ngModel)]="checkBoxChecked"  (click)="checkedPlayer(player)">{{player.username}}</mat-checkbox>
       </section>
   
     
