@@ -51,7 +51,6 @@ export class SetupComponent implements OnInit {
       }
     }
     this.selectedPlayers.push(this.checkBoxValue);
-    console.log(this.selectedPlayers);
   }
 
   startGame() {

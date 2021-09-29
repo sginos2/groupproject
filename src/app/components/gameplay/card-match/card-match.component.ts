@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { GameService } from '../../../services/game.service';
 
 interface CardData {
   state: 'default' | 'flipped' | 'matched';
@@ -42,11 +43,6 @@ interface CardData {
 })
 export class CardMatchComponent implements OnInit {
 
-  retrievedUserSelections: any;
-  userSelections: any;
-  selectedSet: any;
-  matchNum: any;
-  players: any;
   cards: any;
   cardData: CardData = {
     state: 'default'
@@ -58,22 +54,20 @@ export class CardMatchComponent implements OnInit {
   flippedCards: any[] = [];
   cardStates: any;
   matchCount = 0;
+  gamesPlayed = 0;
 
   constructor(
     private http: HttpClient,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    public game: GameService
     ) { }
 
   ngOnInit(): void {
-    this.retrievedUserSelections = localStorage.getItem('userSelections');
-    this.userSelections = JSON.parse(this.retrievedUserSelections);
-    this.selectedSet = this.userSelections.set;
-    this.matchNum = this.userSelections.matchesNum;
-    this.players = this.userSelections.players;
-    this.http.get(`https://api.pokemontcg.io/v2/cards?q=set.id:${this.selectedSet}`)
+    this.game.getUserSelections();
+    this.http.get(`https://api.pokemontcg.io/v2/cards?q=set.id:${this.game.selectedSet}`)
     .subscribe((data: any) => {
       this.cards = data.data;
-      this.randomizeCards(this.cards, this.matchNum); 
+      this.randomizeCards(this.cards, this.game.matchNum); 
       this.shuffleCards(this.cardsArr);
     })
   }
@@ -120,9 +114,9 @@ export class CardMatchComponent implements OnInit {
       this.flippedCards[1].state = 'matched';
       this.flippedCards[0].state = 'matched';
       this.flippedCards = [];
-      this.matchCount++;
-      this.matchNum--;
-      if (this.matchNum === 0) {
+      this.game.currentPlayer.score++;  //will turn into player's score
+      this.game.matchNum--;
+      if (this.game.matchNum === 0) {
         this.gameOverMsg();
       }
     } else {
@@ -133,10 +127,14 @@ export class CardMatchComponent implements OnInit {
   }
 
   gameOverMsg() {
-    this.snackbar.open('All matches found! Game Over.', 'Close');
+    this.game.findWinner();
+    this.snackbar.open(`All matches found! Winner: ${this.game.winner}`, 'Close');
+    this.gamesPlayed++;
+    console.log(this.gamesPlayed);
   }
 
 }
 
+
 //when game completes, increment variable called gamesPlayed, variable for winner, array for losers, 
-//variable for games wone, variable for games lost yulissa will deal with pushing to database
+//variable for games won, variable for games lost yulissa will deal with pushing to database

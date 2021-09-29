@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardMatchComponent } from '../card-match/card-match.component';
-import { TimerComponent } from '../timer/timer.component';
 import { getFirestore, collection, query, doc, getDocs } from '@firebase/firestore';
-
+import { GameService } from '../../../services/game.service';
 
 @Component({
   selector: 'app-side-navbar',
@@ -17,14 +15,12 @@ export class SideNavbarComponent implements OnInit {
   players: any;
 
   constructor(
-    public match: CardMatchComponent,
+    public game: GameService
   ) { }
 
   ngOnInit(): void {
-    this.retrievedUserSelections = localStorage.getItem('userSelections');
-    this.userSelections = JSON.parse(this.retrievedUserSelections);
-    this.players = this.userSelections.players;
-    this.sideMatchNum = this.userSelections.matchesNum;
+    this.game.getUserSelections();
+    this.game.rotatePlayers();
   }  
 
   async getPlayers() { //need to add realtime updates
