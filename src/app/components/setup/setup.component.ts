@@ -22,13 +22,13 @@ export class SetupComponent implements OnInit {
   selectedSet: any;
   selectedPlayers: any[] = [];
   userSelections: any;
-  players = [
-    {username: `${this.getPlayers()}`, id: '1', score: 0}, 
-    {username: `${this.getPlayers()}`, id: '2', score: 0},
-    {username: `${this.getPlayers()}`, id: '3', score: 0},
-    {username: `${this.getPlayers()}`, id: '4', score: 0}
+  players = [ //push the usernames from function onto a collective "list" so it doesnt repeat
+    {username: `${this.getPlayers()}`, id: 1, score: 0}, 
+    {username: `${this.getPlayers()}`, id: 2, score: 0},
+    {username: `${this.getPlayers()}`, id: 1, score: 0}, 
+    {username: `${this.getPlayers()}`, id: 1, score: 0}
   ];
-  
+
   checkBoxChecked: any = false;
   checkBoxValue: any;
 
@@ -46,7 +46,7 @@ export class SetupComponent implements OnInit {
 
   checkedPlayer(id: any) {
     for (let i = 0; i < this.players.length; i++) {
-      if (this.players[i].id === id) {
+      if (this.players[i].id) {
         this.checkBoxValue = this.players[i];
       }
     }
@@ -67,7 +67,7 @@ export class SetupComponent implements OnInit {
   async getPlayers() { 
     const db = getFirestore();
     const usersRef = collection(db, "users");
-    const q = query(usersRef, orderBy('username', 'desc'), limit(4));
+    const q = query(usersRef, limit(4));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const users = [];
       querySnapshot.forEach((doc) => {
