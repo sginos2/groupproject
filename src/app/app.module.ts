@@ -11,7 +11,6 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './components/gameplay/side-navbar/side-navbar.component';
 import { CardMatchComponent } from './components/gameplay/card-match/card-match.component';
-import { TimerComponent } from './components/gameplay/timer/timer.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,7 +44,6 @@ const analytics = getAnalytics(app);
     TopNavbarComponent,
     SideNavbarComponent,
     CardMatchComponent,
-    TimerComponent,
     LoginComponent,
     UserInfoComponent,
     SetupComponent,
@@ -69,10 +67,9 @@ const analytics = getAnalytics(app);
     MatCheckboxModule,
     MatSelectModule,
     MatRadioModule,
-    CountdownModule,
     MatSnackBarModule  
   ],
-  providers: [CountdownModule, TimerComponent, SideNavbarComponent, CardMatchComponent, GameplayComponent],
+  providers: [SideNavbarComponent, CardMatchComponent, GameplayComponent],
   bootstrap: [AppComponent]
 })
 

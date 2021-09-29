@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CountdownConfig, CountdownComponent } from 'ngx-countdown';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,18 @@ export class GameService {
   players: any;
   currentPlayer: any;
   currentPlayerIdx = 0;
-  config: CountdownConfig = {
-    leftTime: 25,
-    formatDate: ({ date }) => `${date / 1000}`,
-    notify: 1
-  };
   roundsPlayed = 0;
   highestScoreIdx = 0;
   highestScore: any;
   winner: any;
+  timer = 25;
+  timerInterval: any;
+  rotateInterval: any;
+  snackbarRef: any;
 
-  constructor() { }
+  constructor(
+    public snackbar: MatSnackBar
+  ) { }
 
   getUserSelections() {
     this.retrievedUserSelections = localStorage.getItem('userSelections');
@@ -35,7 +36,17 @@ export class GameService {
   }
 
   rotatePlayers() {
-    setInterval(() => {
+    this.timerInterval = setInterval(() => {
+      if (this.timer > 0) {
+        this.timer--;
+      } else {
+        this.snackbarRef = this.snackbar.open('Next Player\'s turn.', 'Close');
+        this.snackbarRef.afterDismissed().subscribe(() => {
+          setTimeout(() => {this.timer = 25}, 3000);
+        });
+      }
+    }, 1000);
+    this.rotateInterval = setInterval(() => {
       if (this.currentPlayerIdx < this.players.length - 1) {
         this.currentPlayerIdx++;
         this.currentPlayer = this.players[this.currentPlayerIdx];
@@ -45,8 +56,10 @@ export class GameService {
         console.log(this.currentPlayer);
         this.roundsPlayed++;
       }
-    }, 25000)
+    }, 28000)
   }
+
+
 
   findWinner() {
     //try to figure out how to deal with tied games

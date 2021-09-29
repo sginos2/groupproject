@@ -3,3 +3,8 @@
     flex-direction: row;
     height: 100%;
 }
+
+h2 {
+    text-align: center;
+    padding: 10px;
+}
