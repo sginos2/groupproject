@@ -5,7 +5,7 @@
   <mat-drawer mode="side" opened>
     <div class="mainSideContainer">
       <div class="playersContainer">
-    <h1 class="players">Players</h1>
+    <h1 class="players">PLAYERS:</h1>
 
     <mat-list *ngFor='let player of game.players'>
       <mat-list-item>
@@ -25,7 +25,7 @@
     <div id='matchesLeftId'>{{game.matchNum}}</div>
 
     <h1 class="totalRounds">TOTAL ROUNDS PLAYED:</h1>
-    <div id="totalRoundsId">8</div>
+    <div id="totalRoundsId">{{game.roundsPlayed}}</div>
   </div>
   
   </div>

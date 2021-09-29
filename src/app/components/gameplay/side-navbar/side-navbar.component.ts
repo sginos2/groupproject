@@ -20,7 +20,6 @@ export class SideNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.game.getUserSelections();
-    this.game.rotatePlayers();
   }  
 
   async getPlayers() { //need to add realtime updates

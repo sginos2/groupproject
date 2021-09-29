@@ -54,7 +54,6 @@ export class CardMatchComponent implements OnInit {
   flippedCards: any[] = [];
   cardStates: any;
   matchCount = 0;
-  gamesPlayed = 0;
 
   constructor(
     private http: HttpClient,
@@ -117,6 +116,8 @@ export class CardMatchComponent implements OnInit {
       this.game.currentPlayer.score++;  //will turn into player's score
       this.game.matchNum--;
       if (this.game.matchNum === 0) {
+        clearInterval(this.game.timerInterval);
+        clearInterval(this.game.rotateInterval);
         this.gameOverMsg();
       }
     } else {
@@ -129,8 +130,6 @@ export class CardMatchComponent implements OnInit {
   gameOverMsg() {
     this.game.findWinner();
     this.snackbar.open(`All matches found! Winner: ${this.game.winner}`, 'Close');
-    this.gamesPlayed++;
-    console.log(this.gamesPlayed);
   }
 
 }
