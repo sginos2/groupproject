@@ -23,11 +23,12 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [ //push the usernames from function onto a collective "list" so it doesnt repeat
-    {username: `${this.getPlayers()}`, id: 1, score: 0}, 
-    {username: `${this.getPlayers()}`, id: 2, score: 0},
-    {username: `${this.getPlayers()}`, id: 1, score: 0}, 
-    {username: `${this.getPlayers()}`, id: 1, score: 0}
+    {username: `${this.getPlayers()}`},
+    {username: `${this.getPlayers()}`},
+    {username: `${this.getPlayers()}`},
+    {username: `${this.getPlayers()}`}
   ];
+  
 
   checkBoxChecked: any = false;
   checkBoxValue: any;
@@ -46,7 +47,7 @@ export class SetupComponent implements OnInit {
 
   checkedPlayer(id: any) {
     for (let i = 0; i < this.players.length; i++) {
-      if (this.players[i].id) {
+      if (this.players[i]) {
         this.checkBoxValue = this.players[i];
       }
     }
@@ -73,7 +74,8 @@ export class SetupComponent implements OnInit {
           users.push(doc.data().name);
           for (let i = 0; i < this.players.length; i++) {
                 if (this.players[i].username) {
-                  this.players[i].username = doc.data().username;
+                 this.players[i].username = doc.data().username;
+                  
                   console.log(doc.data());
                 }
               } 
@@ -82,6 +84,11 @@ export class SetupComponent implements OnInit {
     });
     
   }
+
+displayPlayers() {
+  
+}
+
 
 }
   
