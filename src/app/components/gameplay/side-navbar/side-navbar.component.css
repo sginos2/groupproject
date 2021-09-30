@@ -1,30 +1,57 @@
-
 .sidenav {
     width: 100%;
-    height: 100%;
-  }
- #matchesLeftId, #totalRoundsId, #currentPlayerId, .matchesLeft, .totalRounds, .currentPlayer {
+    height: 100%; 
+    font-size: 25px;
+}
+
+.gameInfo {
+    font-size: 15px;
+}
+
+ .current-player-div, .matches-left-div, .total-rounds-div {
      text-align: center;
-     font-size: 21px;
-     margin: 25px
+     margin: 25px;
  }
+
+ .currentPlayer, .matchesLeft, .totalRounds {
+     font-size: 1.5em;
+ }
+
+ #currentPlayerId, #matchesLeftId, #totalRoundsId {
+    font-size: 1.25em;
+ }
+
  .playersContainer {
      text-align: center;
-     margin: 50px;
-     
+     margin: 50px;   
  }
+
+ .players {
+     margin-bottom: 5px;
+     font-size: 1em;
+ }
+
+mat-drawer {
+    background-color: navy;
+    color: white;
+    opacity: 90%;
+}
+
  mat-drawer-content {
-   height: 120px;
-     display: flex;
-     justify-content: right;
-     margin: 15px;
+    height: 120px;
+    display: flex;
+    justify-content: right;
+    margin: 15px;
  }
+
  mat-card {
      padding: 25px;
  }
 
  mat-list-item {
-     margin: 10px;
- }
+     margin-top: 20px;
+     margin-bottom: 20px;
+     font-family: 'Recursive', sans-serif;
+}
  
  

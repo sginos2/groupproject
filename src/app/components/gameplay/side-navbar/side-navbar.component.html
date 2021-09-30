@@ -1,34 +1,34 @@
 <router-outlet style="height: 100%;"></router-outlet>
 
-  <mat-drawer-container class="sidenav">
 <mat-drawer-container class="sidenav">
   <mat-drawer mode="side" opened>
     <div class="mainSideContainer">
       <div class="playersContainer">
-    <h1 class="players">PLAYERS:</h1>
+        <h1 class="players">PLAYERS:</h1>
 
-    <mat-list *ngFor='let player of game.players'>
-      <mat-list-item>
-        {{player.username}}
-        Matches Found: {{player.score}}
-      </mat-list-item> 
-     </mat-list>
-  </div>
-
-
-  <div class="gameInfo">
-
-    <h1 class='currentPlayer'>CURRENT PLAYER:</h1>
-    <div id='currentPlayerId'>{{game.currentPlayer.username}}</div>
-
-   <h1 class='matchesLeft'>MATCHES LEFT:</h1> 
-    <div id='matchesLeftId'>{{game.matchNum}}</div>
-
-    <h1 class="totalRounds">TOTAL ROUNDS PLAYED:</h1>
-    <div id="totalRoundsId">{{game.roundsPlayed}}</div>
-  </div>
-  
-  </div>
+        <mat-list *ngFor='let player of game.players'>
+          <mat-list-item style="color: white;">
+            {{player.username}}
+            Matches Found: {{player.score}}
+          </mat-list-item> 
+        </mat-list>
+      </div>
+      <div class="gameInfo">
+        <div class='current-player-div'>
+          <h1 class='currentPlayer'>CURRENT PLAYER:</h1>
+          <div id='currentPlayerId'>{{game.currentPlayer.username}}</div>
+        </div>
+        
+        <div class='matches-left-div'>
+          <h1 class='matchesLeft'>MATCHES LEFT:</h1> 
+          <div id='matchesLeftId'>{{game.matchNum}}</div>
+        </div>
+        
+        <div class='total-rounds-div'>
+          <h1 class="totalRounds">TOTAL ROUNDS PLAYED:</h1>
+          <div id="totalRoundsId">{{game.roundsPlayed}}</div>
+        </div>
+      </div>
+    </div>
   </mat-drawer>
-
 </mat-drawer-container>

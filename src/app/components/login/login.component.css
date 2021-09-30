@@ -1,0 +1,23 @@
+.mainContainer {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigCard {
+    width: 20%;
+    height: 20%;
+    text-align: center;
+    margin: 20px auto 10px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Recursive', sans-serif;
+    background-color: navy;
+    color: white;
+    opacity: 80%;
+}
+
