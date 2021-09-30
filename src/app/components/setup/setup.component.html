@@ -1,11 +1,10 @@
-
 <mat-card class="formContainer">
     <form>
     <h1 class="setHeader">Set Up Game</h1>
   
     <div class="halfContainer">
       <h2 class="matchesHeader">Number of Matches:</h2>
-      <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedMatchNum" name='radiobutton'>
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedMatchNum" name='radiobutton' style='color: white;'>
         <mat-radio-button [value]="3" class="matchOption">3</mat-radio-button>
         <mat-radio-button [value]="5" class="matchOption">5</mat-radio-button>
         <mat-radio-button [value]="7" class="matchOption">7</mat-radio-button>
@@ -16,8 +15,8 @@
     <div class="secondHalf">
       <h2 class="setheader">Set Selection:</h2>
       <mat-form-field appearance="fill">
-        <mat-label>Choose a card set</mat-label>
-        <mat-select [(ngModel)]="selectedSet" name='dropdown'>
+        <mat-label style='color: white;'>Choose a card set</mat-label>
+        <mat-select [(ngModel)]="selectedSet" name='dropdown' panelClass='setSelection'>
           <mat-option *ngFor="let set of sets" [value]="set.id">{{set.name}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -25,13 +24,13 @@
   
     <h2 class="playerSelectHeader">Select Players:</h2>
     <p>Choose up to 4</p>
-      <section class="playerSelect">
-      <mat-checkbox *ngFor="let player of players" [(ngModel)]="checkBoxChecked"  (click)="checkedPlayer(player)">{{player.username}}</mat-checkbox>
-      </section>
+    <section class="playerSelect">
+      <mat-checkbox *ngFor="let player of players" [(ngModel)]="checkBoxChecked"  (click)="checkedPlayer(player)" class='playerOptions'>{{player.username}}</mat-checkbox>
+    </section>
   
     
   </form>
   <div class="startButton">
-    <button mat-button color="primary" (click)='startGame()'>Start Game</button>
-</div>
+    <button mat-raised-button color='primary' class='startingButton' (click)='startGame()'>Start Game</button>
+  </div>
 </mat-card>

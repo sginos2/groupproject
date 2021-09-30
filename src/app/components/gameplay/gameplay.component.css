@@ -8,3 +8,13 @@ h2 {
     text-align: center;
     padding: 10px;
 }
+
+mat-card {
+    text-align: center;
+    width: 10%;
+    margin: 10px auto 10px auto;
+    background-color: navy;
+    color: white;
+    font-family: 'Recursive', sans-serif;
+    opacity: 80%;
+}

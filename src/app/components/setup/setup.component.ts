@@ -1,10 +1,7 @@
-import { Component, OnInit, Injectable, ɵPlayer } from '@angular/core';
+import { Component, OnInit, Injectable, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { doc, getDoc, getFirestore, query, where, getDocs, onSnapshot, orderBy, limit, collection } from "firebase/firestore";
-
-import { FormBuilder, FormGroup } from '@angular/forms'; 
-
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +10,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-setup',
   templateUrl: './setup.component.html',
-  styleUrls: ['./setup.component.css']
+  styleUrls: ['./setup.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SetupComponent implements OnInit {
 
@@ -23,10 +21,10 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [ //push the usernames from function onto a collective "list" so it doesnt repeat
-    {username: `${this.getPlayers()}`},
-    {username: `${this.getPlayers()}`},
-    {username: `${this.getPlayers()}`},
-    {username: `${this.getPlayers()}`}
+    {username: `${this.getPlayers()}`, score: 0},
+    {username: `${this.getPlayers()}`, score: 0},
+    {username: `${this.getPlayers()}`, score: 0},
+    {username: `${this.getPlayers()}`, score: 0}
   ];
   
 
@@ -52,7 +50,6 @@ export class SetupComponent implements OnInit {
       }
     }
     this.selectedPlayers.push(this.checkBoxValue);
-    console.log(this.selectedPlayers);
   }
 
   startGame() {
