@@ -23,10 +23,7 @@ export class SetupComponent implements OnInit {
   selectedPlayers: any[] = [];
   userSelections: any;
   players = [ //push the usernames from function onto a collective "list" so it doesnt repeat
-    {username: `${this.getPlayers()}`},
-    {username: `${this.getPlayers()}`},
-    {username: `${this.getPlayers()}`},
-    {username: `${this.getPlayers()}`}
+    {username: `${this.getPlayers()}`, score: 0}
   ];
   
 
@@ -75,20 +72,19 @@ export class SetupComponent implements OnInit {
           users.push(doc.data().name);
           for (let i = 0; i < this.players.length; i++) {
                 if (this.players[i].username) {
-                 this.players[i].username = doc.data().username;
-                  
-                  console.log(doc.data());
+                 let action = this.players[i].username = doc.data().username;
+                 action.push(this.players);
                 }
               } 
+            
           console.log(doc.data().username);
       });
+      
     });
     
   }
 
-displayPlayers() {
-  
-}
+
 
 
 }
