@@ -1,3 +1,5 @@
+
+
 <mat-card class="formContainer">
     <form>
     <h1 class="setHeader">Set Up Game</h1>
@@ -24,10 +26,12 @@
   
     <h2 class="playerSelectHeader">Select Players:</h2>
     <p>Choose up to 4</p>
-    <section class="playerSelect">
-      <mat-checkbox *ngFor="let player of players" [(ngModel)]="checkBoxChecked"  (click)="checkedPlayer(player)" class='playerOptions'>{{player.username}}</mat-checkbox>
-    </section>
-  
+       <section class="playerSelect">
+       <mat-checkbox *ngFor="let player of players" [(ngModel)]="checkBoxChecked"  (click)="checkedPlayer(player)">{{player.username}}</mat-checkbox>
+       
+      </section> 
+    
+
     
   </form>
   <div class="startButton">

@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore"; 
 import { doc, getDoc } from "firebase/firestore";
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,8 @@ export class LoginComponent implements OnInit {
   
   }
 
+ 
+
   callSignIn() {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
@@ -34,6 +37,7 @@ export class LoginComponent implements OnInit {
         const user = result.user;
         this.addUserData();
         this.router.navigate(['./setup']);
+     
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -63,11 +67,12 @@ async addUserData() {
     const user = auth.currentUser;
     if (user) {
       const displayName = user.displayName;
-      const email = user.email;
-      const emailVerified = user.emailVerified;
       const db = getFirestore();
     const docRef = await addDoc(collection(db, "users"), {
-      username: displayName
+      username: displayName,
+      totalGames: 0,
+      wins: 0,
+      losses: 0
     });
     console.log("Document written with ID: ", docRef.id);
     }
@@ -78,24 +83,5 @@ async addUserData() {
 }
 
 
-// const defeatedRef = doc(db, "users", "defeated") {
-        
-// } sub collection for invidual users for both losts and wins in users collection?
-
-async gamesPlayed() {
-  try {
-      const db = getFirestore();
-      
-      const docRef = await addDoc(collection(db, "users", "games"), {
-        totalPlayed: 10, //total games played by signed in user
-       totalWon: 2, //total won games played by signed in user
-        totalLosts: 50,// total loss games played by signed in user
-      });
-    
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    } 
-}
 
 }

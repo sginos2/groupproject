@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { getFirestore, collection, query, doc, getDocs } from '@firebase/firestore';
 import { GameService } from '../../../services/game.service';
 
@@ -15,7 +16,8 @@ export class SideNavbarComponent implements OnInit {
   players: any;
 
   constructor(
-    public game: GameService
+    public game: GameService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class SideNavbarComponent implements OnInit {
     querySnapshot.forEach((doc) => {
       console.log(doc.id, " => ", doc.data());
     });
+  }
+
+  restartGame() {
+    this.router.navigate(['./setup']);
   }
 
 }

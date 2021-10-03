@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { doc, getDoc, getFirestore, query, where, getDocs, onSnapshot, orderBy, limit, collection } from "firebase/firestore";
+import { doc, getDoc, getFirestore, query, where, getDocs, onSnapshot, orderBy, limit, collection, increment } from "firebase/firestore";
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +25,10 @@ export class SetupComponent implements OnInit {
     {username: `${this.getPlayers()}`, score: 0},
     {username: `${this.getPlayers()}`, score: 0},
     {username: `${this.getPlayers()}`, score: 0}
+    
   ];
-  
 
+  
   checkBoxChecked: any = false;
   checkBoxValue: any;
 
@@ -73,22 +74,12 @@ export class SetupComponent implements OnInit {
           for (let i = 0; i < this.players.length; i++) {
                 if (this.players[i].username) {
                  this.players[i].username = doc.data().username;
-                  
-                  console.log(doc.data());
+                  console.log(doc.data());            
                 }
               } 
-          console.log(doc.data().username);
       });
     });
-    
   }
-
-displayPlayers() {
+  
   
 }
-
-
-}
-  
-
-  

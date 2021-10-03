@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
+import { getFirestore, addDoc, collection } from '@firebase/firestore';
 
 @Component({
   selector: 'app-gameplay',
@@ -16,5 +17,8 @@ export class GameplayComponent implements OnInit {
     this.game.getUserSelections();
     this.game.rotatePlayers();
   }
+
+
+
 
 }

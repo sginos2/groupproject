@@ -49,9 +49,7 @@ mat-drawer {
  }
 
  mat-list-item {
-     margin-top: 20px;
-     margin-bottom: 20px;
-     font-family: 'Recursive', sans-serif;
-}
+     margin: 20px;
+ }
  
  
