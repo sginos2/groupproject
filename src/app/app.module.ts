@@ -24,7 +24,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SetupComponent } from './components/setup/setup.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { CountdownModule } from 'ngx-countdown';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
