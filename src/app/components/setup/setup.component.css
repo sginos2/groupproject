@@ -1,21 +1,41 @@
 .matchOption {
     padding: 8px;
     font-size: 15px;
+    font-family: 'Recursive', sans-serif;
 }
+
+.mat-radio-outer-circle {
+    border-color: white;
+}
+
+.mat-checkbox-background {
+    background-color: white;   
+}
+
+.playerOptions {
+    font-family: 'Recursive', sans-serif;
+}
+
 .formContainer {
-    width: 600px;
+    width: 40%;
+    height: 80%;
     text-align: center;
-    margin: 8% 0% 0% 28%;
-    padding: 50px 0px 50px 0px;
+    margin: 20px auto 10px auto;
+    font-family: 'Recursive', sans-serif;
+    background-color: navy;
+    color: white;
+    opacity: 80%;
 }
 .secondHalf, .playerSelect {
     margin-top: 20px;
+    color: white;
 }
 .playerSelect {
     display: flex;
     flex-direction: column;
-    
+    color: white;
 }
+
 .playerBoxes {
     font-size: 18px; 
     text-align: left;
@@ -23,6 +43,7 @@
     margin-left: 38%;
     padding: 5px 0px 5px 0px;
 }
+
 #start {
     background-color: rgb(35, 126, 218);
     color: white;
@@ -30,3 +51,21 @@
     padding: 10px;
     margin: 30px 0px 0px 0px;
 }
+
+.startingButton {
+    font-family: 'Recursive', sans-serif;
+    color: white;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+mat-label {
+    font-family: 'Recursive', sans-serif;
+}
+
+.mat-select-value {
+    color: white;
+}
+

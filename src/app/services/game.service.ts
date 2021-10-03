@@ -40,10 +40,7 @@ export class GameService {
       if (this.timer > 0) {
         this.timer--;
       } else {
-        this.snackbarRef = this.snackbar.open('Next Player\'s turn.', 'Close');
-        this.snackbarRef.afterDismissed().subscribe(() => {
-          setTimeout(() => {this.timer = 25}, 3000);
-        });
+        this.timer = 25;
       }
     }, 1000);
     this.rotateInterval = setInterval(() => {
@@ -59,10 +56,7 @@ export class GameService {
     }, 28000)
   }
 
-
-
   findWinner() {
-    //try to figure out how to deal with tied games
     this.highestScore = this.players[0].score;
     for(let i = 0; i < this.players.length; i++) {
       if (this.players[i].score > this.highestScore) {
